@@ -18,9 +18,9 @@ However, over time, as financial products and their derivatives became more soph
 
 The major governing idea for any regulatory framework is what a bank's expected loss is on a loan it gives out, given as:
 
-```
+$$
 EL = PD × EAD × LGD
-```
+$$
 
 Where:
 - **PD** — Probability of Default
