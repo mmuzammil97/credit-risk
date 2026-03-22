@@ -1,0 +1,19 @@
+# Data files (too large for GitHub — see notebook for download instructions)
+data/
+
+# Python virtual environment
+venv/
+
+# macOS
+.DS_Store
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Claude config
+.claude/
