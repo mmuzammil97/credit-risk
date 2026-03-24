@@ -61,9 +61,29 @@ To prepare features, we use **Weight of Evidence (WoE)** encoding and capture th
 
 All metrics fall within regulatory benchmarks for retail credit models.
 
+
+
+---
+
+## XGBoost Comparison
+
+To benchmark the logistic regression scorecard, an XGBoost classifier was trained on the same WoE-transformed features and evaluated on the same test set.
+
+| Metric | Logistic Regression | XGBoost | Difference |
+|:---|:---:|:---:|:---:|
+| AUC | 0.735 | 0.740 | +0.005 |
+| Gini Coefficient | 0.470 | 0.481 | +0.011 |
+| KS Statistic | 0.346 | 0.346 | 0.000 |
+
+XGBoost produces a marginal improvement across all metrics. However, this improvement does not warrant the additional regulatory complexity and loss of interpretability that comes with an ensemble model. The near-identical performance of both models is attributed to the heavy lifting done during feature engineering — by encoding features as WoE values, the non-linear relationships in the data are captured at the preprocessing stage, leaving 
+little room for XGBoost's complexity to improve upon.
+
+For a bank operating under the IRB framework, the logistic regression scorecard remains 
+the preferred choice — it is fully interpretable, directly convertible to a points-based 
+system, and meets all regulatory requirements.
+
 ### Limitations & Further Work
 
 While a fruitful exercise in learning how banks model credit risk, this model is academic in nature. Deployment in a production banking environment would require three years of internal validation before receiving approval for regulatory capital purposes from OSFI. Further exploration might involve:
 
 - Modelling all three components: PD, EAD, and LGD
-- Adding a machine learning framework for comparison (XGBoost would be a good starting point)
